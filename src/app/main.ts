@@ -1,5 +1,6 @@
 import {
   addProduct,
+  findProducts,
   products,
   updateProduct,
 } from './products/product.service';
@@ -26,3 +27,5 @@ console.log(`Products count: ${products.length}`);
 const product = products[0];
 updateProduct(product.id, { title: 'Updated product', stock: 80 });
 console.log(products);
+
+findProducts({ title: 'Updated product', color: 'red' });
