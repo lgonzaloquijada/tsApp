@@ -35,6 +35,11 @@ export const updateProduct = (
 };
 
 export const findProducts = (dto: ProductFindDTO): Product[] => {
+  //dto.tags = [];
+  //dto.tags?.pop(); // it only fails if the array is ReadonlyArray
+  //dto.tags?.push('other'); // it only fails if the array is ReadonlyArray
+  //dto.tags?.shift(); // it only fails if the array is ReadonlyArray
+  //dto.tags?.unshift('new'); // it only fails if the array is ReadonlyArray
   const keys = Object.keys(dto);
   return products;
 };

@@ -28,4 +28,4 @@ const product = products[0];
 updateProduct(product.id, { title: 'Updated product', stock: 80 });
 console.log(products);
 
-findProducts({ title: 'Updated product', color: 'red' });
+findProducts({ title: 'Updated product', color: 'red', tags: ['new', 'red'] });
