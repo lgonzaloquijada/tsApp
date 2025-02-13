@@ -1,10 +1,24 @@
+import { faker } from '@faker-js/faker';
+import { CreateProductDTO } from './product.dto';
 import { Product } from './product.model';
 
 export const products: Product[] = [];
 
-export const addProduct = (product: Product) => {
-  //product.id = products.length + 1; //we shouldn't do this in a real app
-  products.push(product);
+export const addProduct = (product: CreateProductDTO): Product => {
+  const newProduct = {
+    ...product,
+    id: faker.string.uuid(),
+    createdAt: faker.date.recent(),
+    updatedAt: faker.date.recent(),
+    category: {
+      id: product.categoryId,
+      name: faker.commerce.department(),
+      createdAt: faker.date.recent(),
+      updatedAt: faker.date.recent(),
+    },
+  };
+  products.push(newProduct);
+  return newProduct;
 };
 
 export const updateProduct = (id: string, product: Partial<Product>) => {
